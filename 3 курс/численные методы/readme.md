@@ -11,4 +11,4 @@ https://replit.com/@stapkt/chisliennyie-mietody#main.py
 Цель: совпадения значений во всех 3 случаях
 
 
-       Зачет по ЧМ
+   Зачет по ЧМ
