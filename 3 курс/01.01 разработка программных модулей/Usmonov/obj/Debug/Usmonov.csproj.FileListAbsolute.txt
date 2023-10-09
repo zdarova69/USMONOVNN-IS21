@@ -1,0 +1,15 @@
+C:\Users\Администратор\source\repos\Usmonov\bin\Debug\Usmonov.exe.config
+C:\Users\Администратор\source\repos\Usmonov\bin\Debug\Usmonov.exe
+C:\Users\Администратор\source\repos\Usmonov\bin\Debug\Usmonov.pdb
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.csproj.AssemblyReference.cache
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\MainWindow.g.cs
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\App.g.cs
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov_MarkupCompile.cache
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov_MarkupCompile.lref
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\MainWindow.baml
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.g.resources
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.Properties.Resources.resources
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.csproj.GenerateResource.cache
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.csproj.CoreCompileInputs.cache
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.exe
+C:\Users\Администратор\source\repos\Usmonov\obj\Debug\Usmonov.pdb
