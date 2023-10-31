@@ -20,3 +20,11 @@ https://docs.google.com/document/d/1Ze41H0J1wg-MEj10oVbVyiLvfDPb4ZGtSjDuqGNhbpY/
 2. Анимация(проигрывание видео)
 3. Работа с API
 4. Язык программирования - Java или Cotlin Цель - сделать переход между 2 страницами
+
+
+РОБОФЛОУ
+
+https://docs.roboflow.com/deploy/web-browser 
+https://replit.com/@roboflow/Roboflow-Webcam-Quickstart#style.css 
+
+robodlow
