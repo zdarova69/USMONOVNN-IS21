@@ -3,6 +3,7 @@ Excel/Python/MatPlotLib
 https://docs.google.com/spreadsheets/d/1iSjZDIRP0Cc8YBa_dE2FxSUJa-ehiW8qziEr1_Ei1s4/edit?usp=sharing
 https://replit.com/@stapkt/chisliennyie-mietody#main.py
 https://docs.google.com/document/d/1qSqtjjHD-kSoLgh4X1_0YclMQySELXs9cALykmqAYZs/edit?usp=sharing - Отчет
+https://colab.research.google.com/drive/13XLI3FRQOX1PMMlPdyOExVz-8cu6vTt5 - регрессия коллаб
 Задание: Решить СЛАУ:
 1. Метод Крамера
    1.1 Посчитать в экзеле
