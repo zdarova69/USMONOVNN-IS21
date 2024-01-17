@@ -42,3 +42,7 @@ $ git log
 # Подтверждение гит
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/99532c7e-6a9a-49d6-a7a9-7f65140802dc)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/d5f0bdca-73d7-4a4d-817e-2ba7a5bb75b2)
+
+#пушим гит
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/0516c853-81a1-4056-b1e9-00ca48b5830d)
+
