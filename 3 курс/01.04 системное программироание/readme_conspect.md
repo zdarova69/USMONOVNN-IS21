@@ -53,3 +53,6 @@ $ git log
 #  дебиан C
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/8ff03405-2f10-4316-b137-e6bf47d42c7f)
 
+# редос python
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/0ba364fe-c25e-45c6-875d-7bca84c7c7cf)
+
