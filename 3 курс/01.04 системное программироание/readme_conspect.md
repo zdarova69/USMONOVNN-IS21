@@ -57,11 +57,20 @@ $ git log
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/0ba364fe-c25e-45c6-875d-7bca84c7c7cf)
 
 # ЛК 05.02 РАБОТА С ФАЙЛАМИ
+
 1. Создание
 2. Перемещение
 3. Редактирование
-4. Удаление
+4. чтение
+5. Удаление
+   
 Обычный файл (regural):
-1. touch main.txt
-2. mv home/stud/'ваш путь'
+
+1. touch main.txt - создание
+2. mv home/stud/'ваш путь' - перемещение
+3. nano main.txt - редактирование
+4. cat main.txt - чтение
+5. rm main.txt
+   
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/3f67c33b-fbc1-4e8d-b7d2-af214f65a2d1)
 
