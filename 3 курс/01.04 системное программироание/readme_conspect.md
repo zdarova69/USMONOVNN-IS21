@@ -56,3 +56,12 @@ $ git log
 # редос python
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/0ba364fe-c25e-45c6-875d-7bca84c7c7cf)
 
+# ЛК 05.02 РАБОТА С ФАЙЛАМИ
+1. Создание
+2. Перемещение
+3. Редактирование
+4. Удаление
+Обычный файл (regural):
+1. touch main.txt
+2. mv home/stud/'ваш путь'
+
