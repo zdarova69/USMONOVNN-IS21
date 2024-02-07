@@ -70,16 +70,19 @@ $ git log
 2. mv home/stud/'ваш путь' - перемещение
 3. nano main.txt - редактирование
 4. cat main.txt - чтение
-5. rm main.txt
+5. rm main.txt - удаление
    
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/3f67c33b-fbc1-4e8d-b7d2-af214f65a2d1)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/176e17a4-3cc1-4ddb-b150-94486d2db513)
 
 папка (директория):
 
-1. mk dir main - создание
+1. mkdir main - создание
 2. mv home/stud/'ваш путь' - перемещение
-5. rm main -r - удаление
+3. rm main -r - удаление
+4. ls main - чтение
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/a633bce2-491b-4696-bea2-5b245ca9793a)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/ee30b7d9-b3fc-4c1f-b395-1cd95e58bdbd)
 
 
