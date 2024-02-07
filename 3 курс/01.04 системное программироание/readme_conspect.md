@@ -86,3 +86,21 @@ $ git log
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/ee30b7d9-b3fc-4c1f-b395-1cd95e58bdbd)
 
 
+# ссылки
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7c3e6057-22f5-4a83-9802-90e2511de7cb)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/6ee2eeef-22ef-4c45-8787-4c65296e5ad9)
+
+# Передача данных:сокеты(soket) и каналы(pipe)
+
+Разница в способе передачи данных
+
+fifo - first in first out
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/0868088e-520f-44b8-9122-8ac132eca1b1)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/e0a44d1e-2c79-4aaf-9191-31ced7212df3)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/307cff66-90a6-41ab-a375-5582653ff99b)
+
+mcfifo pkanal
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/aaf20cce-b25b-496b-a690-4397646ae935)
+
+
+
