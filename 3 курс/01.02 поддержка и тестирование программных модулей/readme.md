@@ -26,3 +26,6 @@ TDD - Разработка через тестирование
 2. Тестирование становится основным этапом
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/ec621b89-1d12-401d-bba7-8a1fa6c90c0f)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/661fcb18-809b-4600-a761-993fca584251)
+
