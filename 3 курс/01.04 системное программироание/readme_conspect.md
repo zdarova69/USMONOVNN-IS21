@@ -1,4 +1,4 @@
-15.01.2023
+o 15.01.2023
 git bash - команды для работы с гит из терминала
 Прокси сервер git config --global http.proxy 10.0.50.52:3128
 практические задания - https://smartiqa.ru/courses/git/answer-key ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/fd58582d-0161-4b54-befb-95ce71181d20)
