@@ -36,6 +36,5 @@ TDD - Разработка через тестирование
 4. Приемочное
 
 Тестирование бывает статическим и исполнительным. Статическое - без исполнения кода, исполнительная - с исполнением
-
-![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/d65dfeba-edcf-4320-9b3a-6d8a1ae27da2)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/f731b349-0fa0-45cc-88fb-de15d65a7de1)
 
