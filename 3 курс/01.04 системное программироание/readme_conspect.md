@@ -100,7 +100,17 @@ fifo - first in first out
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/307cff66-90a6-41ab-a375-5582653ff99b)
 
 mcfifo pkanal
+
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/aaf20cce-b25b-496b-a690-4397646ae935)
 
+# ЛК 3 12.02
+Устройства:
+1. символьные (мышка,клавиатура)
+2. Блочные (флешки)
+
+1.mknod - создание блочного файла
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/b7a88916-0496-4cb7-b916-6c04b6d931f6)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/bee11ece-57b5-47b1-b9ee-7a1301522af5)
 
 
