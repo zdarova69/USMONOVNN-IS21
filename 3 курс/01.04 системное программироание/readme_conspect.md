@@ -125,6 +125,5 @@ mcfifo pkanal
 
 тот самый скрипт
 ![Screenshot_1](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/bdbb45ee-8926-466a-8ee7-dd292184dc3d)
-![Screenshot_3](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/78050e2f-d840-4c70-b003-a67d843a8273)
-
+![Screenshot_4](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7079e005-0a24-4f7b-bbcb-0f56d61d4b97)
 
