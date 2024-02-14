@@ -115,4 +115,14 @@ mcfifo pkanal
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/bee11ece-57b5-47b1-b9ee-7a1301522af5)
 
+Скрипты
+
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/d8199296-0d5d-4c76-821e-7b9852fbe802)
+
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/18e6046d-fffb-474d-922a-5c3e65ea1e20)
+
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/ec873e9a-2335-47ef-bd16-29b374ff4773)
+
+
+
 
