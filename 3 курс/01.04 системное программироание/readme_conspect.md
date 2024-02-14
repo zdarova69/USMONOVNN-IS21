@@ -87,6 +87,8 @@ $ git log
 
 
 # ссылки
+ln -s main.txt smain.txt - мягкая ссылка
+ln main.txt hmain.txt
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7c3e6057-22f5-4a83-9802-90e2511de7cb)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/6ee2eeef-22ef-4c45-8787-4c65296e5ad9)
 
