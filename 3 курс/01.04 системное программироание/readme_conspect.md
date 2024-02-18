@@ -105,6 +105,9 @@ mcfifo pkanal
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/aaf20cce-b25b-496b-a690-4397646ae935)
 
+
+![изображение](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/26f9d16e-232b-4b4e-bba7-c1a6a511a928)
+
 # ЛК 3 12.02
 Устройства:
 1. символьные (мышка,клавиатура)
