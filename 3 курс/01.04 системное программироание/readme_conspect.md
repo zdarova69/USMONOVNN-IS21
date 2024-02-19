@@ -109,6 +109,7 @@ mcfifo pkanal
 
 
 ![изображение](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/26f9d16e-232b-4b4e-bba7-c1a6a511a928)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/48f6e0f3-a38c-4bfb-9b98-99be307194cd)
 
 # ЛК 3 12.02
 Устройства:
