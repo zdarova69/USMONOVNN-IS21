@@ -134,3 +134,9 @@ mcfifo pkanal
 ![Screenshot_4](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7079e005-0a24-4f7b-bbcb-0f56d61d4b97)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/d04727c8-89ea-4886-831d-96cf96987606)
 
+#ЛК 3 19.02 пользователи
+
+stud - имя пользователя
+x - пароль
+1000 - номер пользователья
+1000 - номер группы
