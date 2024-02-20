@@ -8,7 +8,7 @@ import random as rn
 
 class MyBot:
     def __init__(self):
-        self.token = "6095239590:AAGLodvJdqeE7EK-dfiFtZgsr8WtSwwd1-4"
+        self.token = "2124988062:AAFPpqVZjYT9FnKaT8rPYzyUABrLBJw6XHE"
         self.bot = telebot.TeleBot(self.token)
 
         self.count = 0
@@ -46,7 +46,7 @@ class MyBot:
             self.bot.reply_to(message, 'Давай поиграем в игру - русская рулетка. Выбери число от 1 до 6 - если не повезет - ты умрешь', reply_markup=self.markup_menu)
         @self.bot.message_handler(content_types=['sticker'])
         def uaaaa(message):
-            self.bot.send_dice(message.chat.id)
+            self.bot.send_sticker(message.chat.id, sticker='CAACAgIAAxkBAAEDoBRl1OFpUBsuRXQ098-xnTztGiWznAACYw4AAsGPOUgDr1wPVUikVzQE')
         @self.bot.message_handler(commands=['photo'])
         def send_my_photo(message):
             photo = open('789.jpg', 'rb')
@@ -58,7 +58,7 @@ class MyBot:
             with open(str(file_name) + '.txt', 'w', encoding='utf-8') as file:
                 file.write(str(message))
 
-            with open(str(file_name), 'r', encoding='utf-8') as file_to_write:
+            with open(str(file_name) + '.txt', 'r', encoding='utf-8') as file_to_write:
                 self.bot.send_document(message.chat.id, file_to_write, caption='Это твои данные')
             
         @self.bot.message_handler(commands=['start'])
