@@ -165,6 +165,11 @@ bin\bash - терминал пользователя
 
 графически:
 
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/45dbc310-9c15-4454-b2f7-630d8bfc35f5)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/1467bb6e-5240-4410-96a2-bea3fa83a352)
+
+
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/8f744e8f-6ef0-4b33-be69-e23bfc1bfa7f)
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/63929281-3159-4b8d-b295-7bba8e9fe035)
