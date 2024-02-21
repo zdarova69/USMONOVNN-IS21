@@ -153,3 +153,7 @@ bin\bash - терминал пользователя
 ![Screenshot_9](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/6b1fdd6c-3beb-4e2e-b2d4-2545c118ea1c)
 ![Screenshot_8](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/890431d8-7434-481f-9501-1b627d9642dd)
 
+ред ос
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/81064b99-d36d-4a02-b63e-0321f98539a3)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/b749dcc7-892d-4f46-a82c-bbddf3203be2)
+
