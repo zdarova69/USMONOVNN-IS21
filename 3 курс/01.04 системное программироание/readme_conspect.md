@@ -102,6 +102,7 @@ fifo - first in first out
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/0868088e-520f-44b8-9122-8ac132eca1b1)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/e0a44d1e-2c79-4aaf-9191-31ced7212df3)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/307cff66-90a6-41ab-a375-5582653ff99b)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/95e78334-e44d-45b7-bb15-c83ae02aac18)
 
 mcfifo pkanal
 
