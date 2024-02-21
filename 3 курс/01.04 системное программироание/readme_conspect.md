@@ -117,10 +117,14 @@ mcfifo pkanal
 1. символьные (мышка,клавиатура)
 2. Блочные (флешки)
 
+Файлам присваивается уникальный номер - enod, посмотреть командой ls i1. Жёсткие ссылки имеют тот же номер, что и исходный файл и это можно использовать чтобы найти все жёсткие ссылки.
+
 1.mknod - создание блочного файла
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/b7a88916-0496-4cb7-b916-6c04b6d931f6)
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/bee11ece-57b5-47b1-b9ee-7a1301522af5)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/bbb0752f-c27b-4f31-9a43-91f28ca52735)
 
 Скрипты
 
