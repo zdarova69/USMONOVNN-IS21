@@ -2,9 +2,18 @@ import numpy as np
 import pandas as pd
 import cv2 
 
-cap = cv2.VideoCapture("видео 1.mp4")
+cap = cv2.VideoCapture("ГотовоеПК.mp4")
 instrument_list = ['inst_1','inst_2','inst_3','inst_4','inst_5']
 kernel = np.ones((5,5),np.uint8)
+
+frame_width = int(cap.get(3))
+frame_height = int(cap.get(4))
+frame_size = (frame_width,frame_height)
+fps = 20
+
+# Инициализировать объект записи видео
+output = cv2.VideoWriter('output_video_from_file.avi', cv2.VideoWriter_fourcc('M','J','P','G'), 20, frame_size)
+cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
 
 while True:
     success, img = cap.read()
@@ -24,7 +33,7 @@ print(instrument_dict)
 while True:
     success, img = cap.read()
     if not success:
-        print("Can't receive frame (stream end?). Exiting ...")
+        
         break
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blur33 = cv2.GaussianBlur(gray, (99,99), 0)
@@ -34,7 +43,7 @@ while True:
     cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 
     print(len(all_cnts),len(cnts))
-    for count, c in enumerate(all_cnts): # перебор контуров игорь копируй это
+    for count, c in enumerate(cnts): # перебор контуров игорь копируй это
     #определяет длину контуров
         perimeter = cv2.arcLength(c, True)
         #сглаживание на 4%
@@ -55,9 +64,11 @@ while True:
                 cX = int(M['m10']/M['m00'])
                 cY = int(M['m01']/M['m00'])
                 print(cX,cY)
-                img = cv2.putText(img, str(instrument_list[count]), (cX, cY), font, 1, (255,0,0), 2, cv2.LINE_AA)
+                # img = cv2.putText(img, str(instrument_list[count]), (cX, cY), font, 1, (255,0,0), 2, cv2.LINE_AA)
                 #рисуем контуру: изображение,контур, индекс контура, цвет, толщина
                 cv2.drawContours(img, [c], 0, (36,255,12), 1)
+        
+        output.write(img)
         cv2.imshow("Result", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
@@ -69,7 +80,7 @@ for key,value in instrument_dict.items():
   missing_instrument_value[key]=x
 print(missing_instrument_value)
 l = sorted(l)
-print(l[0], l[1], l[2])
+print(f"инструмент с вероятностью {l[0]} остался")
 df = pd.DataFrame(missing_instrument_value, index=[1])
  
 	
