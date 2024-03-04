@@ -173,4 +173,9 @@ bin\bash - терминал пользователя
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/8f744e8f-6ef0-4b33-be69-e23bfc1bfa7f)
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/63929281-3159-4b8d-b295-7bba8e9fe035)
+ЛК 4 Структура процесса
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/aeeb513a-8ddc-4e6a-aba5-6d53a8374509)
 
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/edd7f8e7-5a80-4da5-b5c1-6973df332514)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/a0734a9a-ac89-4dfa-8529-392d6f6f901c)
