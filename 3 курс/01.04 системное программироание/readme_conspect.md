@@ -189,7 +189,8 @@ bin\bash - терминал пользователя
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/99e3dec5-89a7-4559-9391-822ed04cfccd)
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/f62329e0-a9a9-439b-8759-17c06acdbc58)
-
+# ЛК 5 11.03 Потоки в БД
+Аттрибуты процесса: 1.PID - уникальный идентификатор 2.Адресация областей памяти 3.FD - открытые файловые дескрипторы(терминал или файлы которые используют процессы) 4.Обработчики сигналов процесса(запросы от пользователей) 5.Код выходы(ctrl+c, ctrl+z, all done, exit button) 6.Рабочий каталог(версия ОС)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/f6eb6162-e230-4e82-9ef8-38d994df81db)
 
 1 процесс в системе - init
