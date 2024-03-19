@@ -235,17 +235,21 @@ Running - запущенный процесс
 Debian
 
 Запуск и проверка состояния сервера
+
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/02bc1295-4e14-4236-b784-9bb29af8d254)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/5e9ab8c7-6070-4165-a0f4-db04452e1aa1)
 
 Переход в работу с базой данных
+
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/d6f64446-3310-4691-ab10-c1b54af7f5ab)
 
 Создание и изменение данных в таблице
+
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/8539b568-a207-4f1c-b54c-174d497f2b29)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/2352ea00-230e-406a-82f4-fd45192b8ed3)
 
 Структура БД
+
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7f6dfe0a-8546-494c-8729-a2ce87004cb0)
 
 Проверяем количество строк
