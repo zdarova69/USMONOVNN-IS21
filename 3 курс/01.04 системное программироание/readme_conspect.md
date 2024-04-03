@@ -275,7 +275,7 @@ Docker - ПО с открытым кодом, позволяет перенос�
 Клиент - интерфейс. Демон - управление объектами докера. Контейнер - программа. Образ - конфигурация в файле.
 
 #  Задание 6
-
+  
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/92006ac0-3b19-4fe1-94c6-3af33bad982f)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/2a211e36-21a0-4c42-959a-477906b3b79f)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/e396ad4c-7a0e-4555-a042-da59cb6ecf82)
@@ -286,3 +286,32 @@ Docker - ПО с открытым кодом, позволяет перенос�
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/ec4bcb03-a291-461b-b1a5-849e68a20cff)
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/85507324-8bfe-4624-8aac-3f28b4f7efcd)
 
+# Задание 7
+установка
+  wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.6.x86_64.rpm
+
+  sha256sum influxdb-1.7.6.x86_64.rpm
+
+  dnf localinstall influxdb-1.7.6.x86_64.rpm 
+
+  cat > /etc/yum.repos.d/influxdb.repo << EOF
+  [influxdb]
+  name = InfluxDB Repository
+  baseurl = https://repos.influxdata.com/rhel/7Server/x86_64/stable/
+  enabled = 1
+  gpgcheck = 1
+  gpgkey = https://repos.influxdata.com/influxdb.key
+  EOF
+
+  dnf update
+  dnf install influxdb 
+
+  systemctl start influxdb
+  systemctl enable influxdb
+
+  firewall-cmd --add-port={8086,8088}/tcp --permanent
+  firewall-cmd --reload
+
+  curl -XPOST "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE testdb"
+
+  ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7f443597-e37d-4cca-8887-836d0f96f1ef)
