@@ -288,30 +288,35 @@ Docker - ПО с открытым кодом, позволяет перенос�
 
 # Задание 7
 установка
-  wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.6.x86_64.rpm
 
-  sha256sum influxdb-1.7.6.x86_64.rpm
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/bb85f888-35d5-43eb-abca-341398e6d42b)
 
-  dnf localinstall influxdb-1.7.6.x86_64.rpm 
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/81925fb8-ee80-4f0b-8f2e-6835d464e5bd)
 
-  cat > /etc/yum.repos.d/influxdb.repo << EOF
-  [influxdb]
-  name = InfluxDB Repository
-  baseurl = https://repos.influxdata.com/rhel/7Server/x86_64/stable/
-  enabled = 1
-  gpgcheck = 1
-  gpgkey = https://repos.influxdata.com/influxdb.key
-  EOF
-
-  dnf update
-  dnf install influxdb 
-
-  systemctl start influxdb
-  systemctl enable influxdb
-
-  firewall-cmd --add-port={8086,8088}/tcp --permanent
-  firewall-cmd --reload
-
-  curl -XPOST "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE testdb"
+    wget https://dl.influxdata.com/influxdb/releases/influxdb-1.7.6.x86_64.rpm
+    
+    sha256sum influxdb-1.7.6.x86_64.rpm
+    
+    dnf localinstall influxdb-1.7.6.x86_64.rpm 
+    
+    cat > /etc/yum.repos.d/influxdb.repo << EOF
+    [influxdb]
+    name = InfluxDB Repository
+    baseurl = https://repos.influxdata.com/rhel/7Server/x86_64/stable/
+    enabled = 1
+    gpgcheck = 1
+    gpgkey = https://repos.influxdata.com/influxdb.key
+    EOF
+    
+    dnf update
+    dnf install influxdb 
+    
+    systemctl start influxdb
+    systemctl enable influxdb
+    
+    firewall-cmd --add-port={8086,8088}/tcp --permanent
+    firewall-cmd --reload
+    
+    curl -XPOST "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE testdb"
 
   ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7f443597-e37d-4cca-8887-836d0f96f1ef)
