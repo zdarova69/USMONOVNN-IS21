@@ -337,3 +337,6 @@ Docker - ПО с открытым кодом, позволяет перенос�
     curl -XPOST "http://localhost:8086/query" --data-urlencode "q=CREATE DATABASE testdb"
 
   ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/7f443597-e37d-4cca-8887-836d0f96f1ef)
+
+#  Задание 8
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/670d0120-3af1-4b5f-9eaa-683589a1b881)
