@@ -343,3 +343,5 @@ Docker - ПО с открытым кодом, позволяет перенос�
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/3e5e4f89-ba93-4413-8a4c-ca4c7ae2415d)
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/d906dfb1-016f-4fed-a5bb-0c4002f7a010)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/f37a8bfc-9849-46ce-9f01-94b5ef09470c)
