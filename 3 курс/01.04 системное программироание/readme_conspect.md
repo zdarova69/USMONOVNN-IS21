@@ -345,3 +345,12 @@ Docker - ПО с открытым кодом, позволяет перенос�
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/d906dfb1-016f-4fed-a5bb-0c4002f7a010)
 
 ![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/f37a8bfc-9849-46ce-9f01-94b5ef09470c)
+
+# ЛК 9. REST API
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/409a412b-22f7-4d4d-a45d-daa04a45aaf1)
+
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/7ee96cfc-5881-4326-afe2-a29786770aad)
+
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/6010b448-b6b2-4a0f-9c8b-4175f1b19a0c)
+
+![image](https://github.com/SERGEo10/6semestr/assets/106819250/758ec913-3dd9-4fe8-9ebe-bdae0016977b)
