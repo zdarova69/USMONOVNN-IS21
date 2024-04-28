@@ -1,34 +1,30 @@
-test_list = ['20.11.2000', '20.1.202000', '2010200000','198.20.235','а1.10.2к15','32.12.1999','31.13.2000']
+from datetime import datetime
+from typing import List
 
-for count, test in enumerate(test_list):
-    dug_report = ''
+class StudentManager:
+    def min_avg(self, marks: List[str]) -> float:
+        if not marks:
+            raise ValueError("List of marks is empty")
+        return sum(map(float, marks)) / len(marks)
 
-    if len(test) == 10:
-        print('есть 10 символов')
-        a = test.split('.')
-        if len(a) == 3:
-            day,month,years = a
-            print('точки на месте')
-            if len(day)==2 and len(month)==2 and len(years)==4:
-                print("правильное количество символов")
-                if day.isdigit() and month.isdigit() and years.isdigit():
-                    print('нету букв')
-                    if int(day) <= 31:
-                        print("правильный день")
-                        if int(month) <= 12:
-                            print("правильный месяц")
-                        else:
-                            dug_report = "неправильный месяц"
-                    else:
-                        dug_report = "неправильный день"
-                else:
-                    dug_report = "есть буквы"
-            else:
-                dug_report = "неправильный количество символов в месяце,дне,годе"
-        else:
-            dug_report = "неправильный точки"
-    else:
-        dug_report = "неправильный количество символов"
+    def get_count_truancy(self, marks: List["Mark"]) -> int:
+        truancy_count = sum(1 for mark in marks if mark.estimation.lower() == "прогул")
+        return truancy_count
 
-    with open('dug_report.txt', 'a', encoding='utf-8') as file: 
-        file.write(str(count) + ' ' + test + ' ' + dug_report + ' ' + 'средний приоритет' + ' ' + 'среднее влияние' +  '\n') 
+    def get_count_disease(self, marks: List["Mark"]) -> int:
+        disease_count = sum(1 for mark in marks if mark.estimation.lower() == "болезнь")
+        return disease_count
+
+    def get_stud_number(self, year: int, group: int, fio: str) -> str:
+        fio_parts = fio.split()
+        initials = "".join(part[0].upper() for part in fio_parts)
+        return f"{year}.{group}.{initials}"
+
+    def get_marks(self, now: datetime, students: List[str]) -> List["Mark"]:
+        # Здесь должен быть код для генерации оценок для переданных студентов
+        pass
+
+class Mark:
+    def __init__(self, date: datetime, estimation: str):
+        self.date = date
+        self.estimation = estimation
