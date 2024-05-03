@@ -354,3 +354,10 @@ Docker - ПО с открытым кодом, позволяет перенос�
 ![image](https://github.com/SERGEo10/6semestr/assets/106819250/6010b448-b6b2-4a0f-9c8b-4175f1b19a0c)
 
 ![image](https://github.com/SERGEo10/6semestr/assets/106819250/758ec913-3dd9-4fe8-9ebe-bdae0016977b)
+
+# ЛК 10. MSQTT
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/3171d172-9556-450c-af52-4831102aff4c)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/19c14abc-d836-4a28-9a6a-abef4eb5fa8a)
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/8bacaef8-9d55-443c-806d-a46c2cd7912b)
+
+![image](https://github.com/zdarova69/USMONOVNN-IS21/assets/113101818/a64ea870-ae1e-4419-9909-ca740cd774c8)
