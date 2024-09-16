@@ -4,7 +4,7 @@ import os, json
 def search_api(a):
   print(f'получено {a}')
   params = {
-    "api_key": "35ad8f3f0a6df240bab8ad52165ba01f5c004d1a60b70c8552cb0e9c236265ff",
+    "api_key": "",
     "engine": "google",
     "q": a,
     "tbm": "isch",
