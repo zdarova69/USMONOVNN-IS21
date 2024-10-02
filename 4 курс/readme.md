@@ -1,5 +1,6 @@
 #Diplom
 демэкзамен - https://ru.yougile.com/board/bearpnq92dmb
+
 диплом - https://ru.yougile.com/board/etwyyhynnfgh
 
 1. Что Вы будете делать ? Ответ: чат бот с нейросетью
