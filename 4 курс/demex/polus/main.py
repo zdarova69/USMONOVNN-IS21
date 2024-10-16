@@ -3,18 +3,13 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import (
     QApplication, # это то, что поддерживает работоспособность приложения Qt, выполняя его основной цикл событий
-    QDialog # это базовый класс диалогового окна
 )
-
-from PyQt5.uic import loadUi # загрузка интерфейса, созданного в Qt Creator
 
 import sys # взаимодействие с интерпретатором
 
 from PyQt5.QtGui import QPixmap, QIcon # для работы с изображениями и загрузки иконок
 
 from WelcomeScreen import WelcomeScreen
-
-
 
 # запуcк приложения
 app = QApplication(sys.argv)
