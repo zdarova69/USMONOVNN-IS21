@@ -6,6 +6,10 @@ from PyQt5.QtWidgets import (
 )
 
 from PyQt5.uic import loadUi # загрузка интерфейса, созданного в Qt Creator
+from modules.manager import manager
+from modules.operator import operator
+from modules.master import master
+from modules.zakazchik import zakazchik
 
 import sqlite3
 
@@ -62,27 +66,9 @@ class WelcomeScreen(QDialog):
     def on_page_changed(self, index):
         if index == self.stackedWidget.indexOf(self.Avtorisation):  # Если текущая страница - Avtorisation
             self.SignOutButton.hide()
-            pass
         else:
             self.SignOutButton.show()
     def sign_out(self):
         self.stackedWidget.setCurrentWidget(self.Avtorisation)
-class manager(QDialog):
-    def __init__(self):        
-        super(manager, self).__init__()
-        print("manager")
 
-class master(QDialog):
-    def __init__(self):        
-        super(master, self).__init__()
-        print("master")
 
-class operator(QDialog):
-    def __init__(self):        
-        super(operator, self).__init__()
-        print("operator")
-
-class zakazchik(QDialog):
-    def __init__(self):        
-        super(zakazchik, self).__init__()
-        print("zakazchik")

@@ -21,7 +21,7 @@ widget.addWidget(welcome)
 
 # загружаем иконку
 icon = QIcon()
-icon.addPixmap(QPixmap("logo.png"), QIcon.Normal, QIcon.Off)
+icon.addPixmap(QPixmap("media/logo.png"), QIcon.Normal, QIcon.Off)
 widget.setWindowIcon(icon) 
 widget.show()
 
