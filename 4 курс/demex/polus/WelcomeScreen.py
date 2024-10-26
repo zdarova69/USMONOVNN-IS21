@@ -6,10 +6,6 @@ from PyQt5.QtWidgets import (
 )
 
 from PyQt5.uic import loadUi # загрузка интерфейса, созданного в Qt Creator
-from modules.manager import manager
-from modules.operator import operator
-from modules.master import master
-from modules.zakazchik import zakazchik
 
 import sqlite3
 
@@ -25,50 +21,70 @@ class WelcomeScreen(QDialog):
         super(WelcomeScreen, self).__init__()
         loadUi("welcomescreen.ui",self) # загружаем интерфейс.
         self.PasswordField.setEchoMode(QtWidgets.QLineEdit.Password) # скрываем пароль
-        self.SignInButton.clicked.connect(self.sign_up_function) # нажати на кнопку и вызов функции
-        self.SignOutButton.clicked.connect(self.sign_out)
-        self.SignOutButton.hide()
-        # self.stackedWidget.setCurrentWidget(self.Avtorisation)
-        self.stackedWidget.currentChanged.connect(self.on_page_changed)
-    def sign_up_function(self):
-        user = self.LoginField.text()
-        password = self.PasswordField.text()
-        print(user, password)
+        self.SignInButton.clicked.connect(self.signupfunction) # нажати на кнопку и вызов функции
+        # Подключение кнопок к методам переключения страниц с использованием lambda
+        #self.SignInButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.Zakazchik))
+        self.AvtorButton.clicked.connect(self.sign_out)
+        self.AvtorButton.hide()
+        self.stackedWidget.currentChanged.connect(self.hiddenButton)
 
-        if len(user) == 0 or len(password) == 0:
-            self.ErrorField.setText("Заполните все поля")
+    def signupfunction(self): # создаем функцию регистрации
+        
+        user = self.LoginField.text() # создаем пользователя и получаем из поля ввода логина введенный текст
+        password = self.PasswordField.text() # создаем пароль и получаем из поля ввода пароля введенный текст
+        print(user, password) # выводит логин и пароль
+
+        if len(user)==0 or len(password)==0: # если пользователь оставил пустые поля
+            self.ErrorField.setText("Заполните все поля") # выводим ошибку в поле
         else:
-            self.ErrorField.setText("Все ок")
+            conn = sqlite3.connect("uchet.db") # подключение к базе данных в () изменить на название своей БД
+            cur = conn.cursor() # переменная для запросов
 
-        conn = sqlite3.connect("uchet.db")
-        cur = conn.cursor()
-        cur.execute('SELECT typeID FROM users WHERE login=? and password=?', (user, password))
-        typeUser = cur.fetchone()
-        if typeUser:
-            print(typeUser[0])
-            if typeUser[0] == 1:
+            cur.execute('SELECT typeID FROM users WHERE login=(?) and password=(?)', [user, password]) # получаем тип пользователя, логин и пароль которого был введен
+            typeUser = cur.fetchone() # получает только один тип пользователя
+            if typeUser == None:
+                self.ErrorField.setText("Пользователь с такими данными не найден")
+            elif typeUser[0] == 1:
                 self.stackedWidget.setCurrentWidget(self.Manager)
-                self.lybaya = manager()
+                self.lybaya = Manager()
             elif typeUser[0] == 2:
                 self.stackedWidget.setCurrentWidget(self.Master)
-                self.lybaya = master()
+                self.lybaya = Master()
             elif typeUser[0] == 3:
                 self.stackedWidget.setCurrentWidget(self.Operator)
-                self.lybaya = operator()
+                self.lybaya = Operator()
             elif typeUser[0] == 4:
                 self.stackedWidget.setCurrentWidget(self.Zakazchik)
-                self.lybaya = zakazchik()
-        else:
-            self.ErrorField.setText("Неверный логин или пароль")
+                self.lybaya = Zakazchik()            
 
-        conn.commit()
-        
-    def on_page_changed(self, index):
-        if index == self.stackedWidget.indexOf(self.Avtorisation):  # Если текущая страница - Avtorisation
-            self.SignOutButton.hide()
+            conn.commit() # сохраняет в подключении запросы
+            conn.close() # закрываем подключение
+    
+    def hiddenButton(self):
+        if self.stackedWidget.currentWidget() == self.Avtorisation:  
+            self.AvtorButton.hide()
         else:
-            self.SignOutButton.show()
+            self.AvtorButton.show()
+    
     def sign_out(self):
         self.stackedWidget.setCurrentWidget(self.Avtorisation)
 
+class Manager(QDialog):
+    def __init__(self):        
+        super(Manager, self).__init__()
+        print("Проверка открытия страницы менеджера")
 
+class Master(QDialog):
+    def __init__(self):        
+        super(Master, self).__init__()
+        print("Проверка открытия страницы мастера")
+
+class Operator(QDialog):
+    def __init__(self):        
+        super(Operator, self).__init__()
+        print("Проверка открытия страницы оператора")
+
+class Zakazchik(QDialog):
+    def __init__(self):        
+        super(Zakazchik, self).__init__()
+        print("Проверка открытия страницы заказчика")

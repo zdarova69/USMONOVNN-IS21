@@ -9,7 +9,7 @@ import sys # взаимодействие с интерпретатором
 
 from PyQt5.QtGui import QPixmap, QIcon # для работы с изображениями и загрузки иконок
 
-from WelcomeScreen import WelcomeScreen
+from pages.WelcomeScreen import WelcomeScreen
 
 # запуcк приложения
 app = QApplication(sys.argv)
