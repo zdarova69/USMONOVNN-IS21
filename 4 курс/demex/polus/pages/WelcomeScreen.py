@@ -10,11 +10,8 @@ from PyQt5.uic import loadUi # загрузка интерфейса, созда
 
 import sqlite3
 
-from pages.Zakazchik import Zakazchik
-from pages.Operator import Operator
 from pages.Manager import Manager
-from pages.Master import Master
-from pages.superclass import superClass
+from pages.UserTableDialog import UserTableDialog
 
 
 # Окно приветствия
@@ -115,15 +112,15 @@ class WelcomeScreen(QDialog):
                 self.stackedWidget.setCurrentWidget(self.pages[typeUser[0]]['widget'])
                 self.lybaya = Manager()
             else:
-                self.tableMasteraZayavki = self.findChild(QTableWidget, self.pages[typeUser[0]]['table'])
+                self.table = self.findChild(QTableWidget, self.pages[typeUser[0]]['table'])
                 self.stackedWidget.setCurrentWidget(self.pages[typeUser[0]]['widget'])
                 if typeUser[0] == 4:
                     cur.execute('SELECT IDuser FROM users WHERE login=(?) and password=(?)', [user, password])
                     userID = cur.fetchone()  # Получаем кортеж с ID пользователя
 
-                    self.lybaya = superClass(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID) 
+                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID) 
                 else:
-                    self.lybaya = superClass(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'])                        
+                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'])                        
 
                  
                     
