@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import (
     QDialog, # это базовый класс диалогового окна
     QTableWidget
 )
+from PyQt5.QtWidgets import QVBoxLayout, QLineEdit
 
 from PyQt5.uic import loadUi # загрузка интерфейса, созданного в Qt Creator
 
@@ -12,6 +13,7 @@ import sqlite3
 
 from pages.Manager import Manager
 from pages.UserTableDialog import UserTableDialog
+
 
 
 # Окно приветствия
@@ -42,8 +44,9 @@ class WelcomeScreen(QDialog):
     },
     2: {
         'zp': "SELECT * FROM requests",
-        'table': 'tableMasteraZayavki',
-        'widget': self.Master
+        'table': 'tableWidget',
+        'widget': self.Master,
+        'columns': 0
     },
     3: {
         'zp': """SELECT
@@ -68,8 +71,9 @@ class WelcomeScreen(QDialog):
             LEFT JOIN 
                 users c ON r.clientID = c.IDuser;""",
 
-        'table': 'tableVseZayavki',
-        'widget': self.Operator
+        'table': 'tableWidget',
+        'widget': self.Master,
+        'columns': 0
     },
     4: {
         'zp': """SELECT
@@ -85,11 +89,26 @@ class WelcomeScreen(QDialog):
             LEFT JOIN 
                 requestStatuses rs ON r.requestStatusID = rs.IDrequestStatus
             WHERE r.clientID = ?;""",
-        'table': 'tableZakazchikaZayavki',
-        'widget': self.Zakazchik
+        'table': 'tableWidget',
+        'widget': self.Master,
+        'columns': 5
     }
 }
-
+        # Создаем пустой список для хранения QLineEdit
+        self.line_edits = []
+    def hide_label(self, count):
+        # Проходим по всем элементам в QVBoxLayout
+        for i in range(self.verticalLayout_3.count()):
+            item = self.verticalLayout_3.itemAt(i)
+            widget = item.widget()
+            widget.hide()
+            
+            # Проверяем, является ли виджет QLineEdit
+            if isinstance(widget, QLineEdit):
+                self.line_edits.append(widget)
+        # Теперь line_edits содержит список всех QLineEdit в QVBoxLayout
+        for i in self.line_edits[count:]:
+            i.show()
     def signupfunction(self): # создаем функцию регистрации
         
         user = self.LoginField.text() # создаем пользователя и получаем из поля ввода логина введенный текст
@@ -109,7 +128,6 @@ class WelcomeScreen(QDialog):
             if typeUser == None:
                 self.ErrorField.setText("Пользователь с такими данными не найден")
             elif typeUser[0] == 1:
-                self.stackedWidget.setCurrentWidget(self.pages[typeUser[0]]['widget'])
                 self.lybaya = Manager()
             else:
                 self.table = self.findChild(QTableWidget, self.pages[typeUser[0]]['table'])
@@ -118,12 +136,14 @@ class WelcomeScreen(QDialog):
                     cur.execute('SELECT IDuser FROM users WHERE login=(?) and password=(?)', [user, password])
                     userID = cur.fetchone()  # Получаем кортеж с ID пользователя
 
-                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID) 
-                else:
-                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'])                        
+                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID, type_user=typeUser) 
 
-                 
-                    
+                    self.hide_label(self.pages[typeUser[0]]['columns'])
+                else:
+                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], type_user=typeUser)    
+                    self.hide_label(self.pages[typeUser[0]]['columns'])
+
+                self.stackedWidget.setCurrentWidget(self.pages[typeUser[0]]['widget'])
            
             conn.commit() # сохраняет в подключении запросы
             conn.close() # закрываем подключение
@@ -133,6 +153,7 @@ class WelcomeScreen(QDialog):
             self.AvtorButton.hide()
         else:
             self.AvtorButton.show()
-    
+
+
     def sign_out(self):
         self.stackedWidget.setCurrentWidget(self.Avtorisation)
