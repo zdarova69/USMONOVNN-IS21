@@ -4,7 +4,7 @@ from yookassa import Configuration, Payment
 from ukassa import account_id, secret_key, proxy_api
 import sqlite3
 from openai import OpenAI
-
+from payments import payment
 
     
 Configuration.account_id = account_id
@@ -41,6 +41,61 @@ class Client():
         ''', (tgID, name, date_start, model))
         print('данные сохранены')
         conn.commit()
+    def check_status(self, tgID, description):
+        conn = sqlite3.connect(self.db)
+        cursor = conn.cursor()
+        # Сначала проверяем, существует ли запись с таким tgID и описанием "подписка за телеграмм-бота"
+        cursor.execute('''
+            SELECT status FROM payments
+            WHERE tgID = ? AND description = ?
+        ''', (tgID, description))
+
+        status = cursor.fetchone()[0]
+        print(status)
+        conn.commit()
+        conn.close()
+    def create_payment(self, tgID, value, description):
+            try:           
+                status = self.check_status(tgID=tgID, description=description)
+                if status and status == 'succesfull':
+                    print('подписка уже есть')
+                    return 'у вас есть подписка'
+                else:
+                    # Создаем новый платеж вместо старого
+                    payment_check = payment(value=value, description=description)
+
+                    payment_url = payment_check['confirmation']['confirmation_url']
+
+                    # Получаем значения
+                    PaymentID = payment_check['id']
+                    status = payment_check['status']
+                    description = payment_check['description']
+                    value = payment_check['amount']['value']
+                    created_at = payment_check['created_at']
+                    
+                    conn = sqlite3.connect(self.db)
+                    cursor = conn.cursor()
+
+                    if status:  
+                        # Если запись существует, обновляем остальные атрибуты
+                        cursor.execute('''
+                            UPDATE payments
+                            SET PaymentID = ?, status = ?, value = ?, created_at = ?
+                            WHERE tgID = ? AND description = 'Подписка на телеграмм-бота'
+                        ''', (PaymentID, status, value, created_at, tgID))
+                    else:
+                        # Если записи не существует, добавляем новую запись
+                        cursor.execute('''
+                            INSERT INTO payments (PaymentID, status, description, tgID, value, created_at)
+                            VALUES (?, ?, ?, ?, ?, ?)
+                        ''', (PaymentID, status, description, tgID, value, created_at))
+
+                    conn.commit()
+                    conn.close()
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                conn.rollback()
+            return payment_url
     
     def change_model(self, tgID, model):
         # Обновляем информацию о пользователе в базе данных
