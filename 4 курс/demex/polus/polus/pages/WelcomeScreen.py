@@ -14,6 +14,7 @@ import sqlite3
 from pages.Manager import Manager
 from pages.UserTableDialog import UserTableDialog
 
+from pages.database import showSelect
 
 
 # Окно приветствия
@@ -28,14 +29,56 @@ class WelcomeScreen(QDialog):
         super(WelcomeScreen, self).__init__()
         loadUi("views/welcomescreen.ui",self) # загружаем интерфейс.
         self.PasswordField.setEchoMode(QtWidgets.QLineEdit.Password) # скрываем пароль
+           
+        
+        
+class AuthPage(WelcomeScreen):        
+    def __init__(self):
+        super().__init__()    
         self.SignInButton.clicked.connect(self.signupfunction) # нажати на кнопку и вызов функции
         # Подключение кнопок к методам переключения страниц с использованием lambda
         #self.SignInButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.Zakazchik))
         self.AvtorButton.clicked.connect(self.sign_out)
         self.AvtorButton.hide()
-        self.stackedWidget.currentChanged.connect(self.hiddenButton)     
+        self.stackedWidget.currentChanged.connect(self.hiddenButton)  
+    # Создаем пустой список для хранения QLineEdit
+    def hide_label(self, count):
+        line_edits = []
+        # Проходим по всем элементам в QVBoxLayout
+        for i in range(self.verticalLayout_3.count()):
+            item = self.verticalLayout_3.itemAt(i)
+            widget = item.widget()
+            
+            
+            # Проверяем, является ли виджет QLineEdit
+            if isinstance(widget, QLineEdit):
+                line_edits.append(widget)
+                widget.hide()
+        # Теперь line_edits содержит список всех QLineEdit в QVBoxLayout
+        for i in line_edits[count:]:
+            i.show()
+
+    def signupfunction(self): # создаем функцию регистрации
         
+        user = self.LoginField.text() # создаем пользователя и получаем из поля ввода логина введенный текст
+        password = self.PasswordField.text() # создаем пароль и получаем из поля ввода пароля введенный текст
+        return user, password # выводит логин и пароль
+
         
+    
+    def hiddenButton(self):
+        if self.stackedWidget.currentWidget() == self.Avtorisation:  
+            self.AvtorButton.hide()
+        else:
+            self.AvtorButton.show()
+
+
+    def sign_out(self):
+        self.stackedWidget.setCurrentWidget(self.Avtorisation)
+
+class UserScreen(WelcomeScreen, showSelect):
+    def __init__(self):
+        super().__init__()
         self.pages = {
     1: {
         'zp': "",
@@ -100,29 +143,7 @@ class WelcomeScreen(QDialog):
         'columns': 5
     }
 }
-        # Создаем пустой список для хранения QLineEdit
-        
-    def hide_label(self, count):
-        line_edits = []
-        # Проходим по всем элементам в QVBoxLayout
-        for i in range(self.verticalLayout_3.count()):
-            item = self.verticalLayout_3.itemAt(i)
-            widget = item.widget()
-            
-            
-            # Проверяем, является ли виджет QLineEdit
-            if isinstance(widget, QLineEdit):
-                line_edits.append(widget)
-                widget.hide()
-        # Теперь line_edits содержит список всех QLineEdit в QVBoxLayout
-        for i in line_edits[count:]:
-            i.show()
-    def signupfunction(self): # создаем функцию регистрации
-        
-        user = self.LoginField.text() # создаем пользователя и получаем из поля ввода логина введенный текст
-        password = self.PasswordField.text() # создаем пароль и получаем из поля ввода пароля введенный текст
-        print(user, password) # выводит логин и пароль
-
+    def check_user(self, user, password):
         if len(user)==0 or len(password)==0: # если пользователь оставил пустые поля
             self.ErrorField.setText("Заполните все поля") # выводим ошибку в поле
         else:
@@ -142,25 +163,16 @@ class WelcomeScreen(QDialog):
                     cur.execute('SELECT IDuser FROM users WHERE login=(?) and password=(?)', [user, password])
                     userID = cur.fetchone()  # Получаем кортеж с ID пользователя
 
-                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID, type_user=typeUser) 
+                    self.lybaya = showSelect.showdata(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID, type_user=typeUser) 
 
-                    self.hide_label(self.pages[typeUser[0]]['columns'])
                 else:
-                    self.lybaya = UserTableDialog(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], type_user=typeUser)    
-                    self.hide_label(self.pages[typeUser[0]]['columns'])
+                    self.lybaya = showSelect.showdata(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], type_user=typeUser)    
+            
+            
+            self.hide_label(self.lybaya)
 
             self.table = self.findChild(QTableWidget, 'tableWidget')
             self.stackedWidget.setCurrentWidget(self.user)
 
             conn.commit() # сохраняет в подключении запросы
             conn.close() # закрываем подключение
-    
-    def hiddenButton(self):
-        if self.stackedWidget.currentWidget() == self.Avtorisation:  
-            self.AvtorButton.hide()
-        else:
-            self.AvtorButton.show()
-
-
-    def sign_out(self):
-        self.stackedWidget.setCurrentWidget(self.Avtorisation)

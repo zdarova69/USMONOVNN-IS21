@@ -7,15 +7,17 @@ from PyQt5.QtWidgets import (
 import sqlite3
 
 class UserTableDialog(QDialog):
-    def __init__(self, table_widget,type_user, zapros, userID=None):        
+    def __init__(self, table_widget, zapros, type_user,userID=None):        
         super(UserTableDialog, self).__init__()
-        print(f"Проверка открытия страницы {type_user}")
+        print("Проверка открытия страницы оператора")
         self.table = table_widget
         self.zapros = zapros
         self.userID = userID
         self.type_user = type_user
+        print(self.table)
         print(table_widget)
         self.showdata()
+        
 
     def showdata(self):
         conn1 = sqlite3.connect("uchet.db")
@@ -39,3 +41,6 @@ class UserTableDialog(QDialog):
         self.table.resizeColumnsToContents()
         conn1.commit()
         conn1.close()
+
+    
+        
