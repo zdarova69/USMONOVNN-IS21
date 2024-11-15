@@ -32,25 +32,25 @@ class showSelect(showData):
     def __init__(self):
         super(showSelect, self).__init__()
 
-        self.showdata()
+        # self.showdata()
 
-    def showdata(self, table_widget, zapros, type_user, userID=None):
-        if self.userID is not None:
+    def showdata(self, table_widget, zapros, userID=None):
+        if userID is not None:
             col_names, data_rows = self.execute_query(zapros, (userID[0],))
         else:
             col_names, data_rows = self.execute_query(zapros)
-
+        
         table_widget.setColumnCount(len(col_names))
         table_widget.setHorizontalHeaderLabels(col_names)
         table_widget.setRowCount(0)
 
         for i, row in enumerate(data_rows):
-            table_widget.setRowCount(self.table.rowCount() + 1)
+            table_widget.setRowCount(table_widget.rowCount() + 1)
             for j, elem in enumerate(row):
                 table_widget.setItem(i, j, QTableWidgetItem(str(elem)))
 
         table_widget.resizeColumnsToContents()
-
+        print('столбцов ',len(col_names))
         return len(col_names)
 
 

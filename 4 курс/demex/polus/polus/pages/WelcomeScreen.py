@@ -5,19 +5,17 @@ from PyQt5.QtWidgets import (
     QDialog, # это базовый класс диалогового окна
     QTableWidget
 )
-from PyQt5.QtWidgets import QVBoxLayout, QLineEdit
+from PyQt5.QtWidgets import QVBoxLayout, QLineEdit, QPushButton, QStackedWidget
 
 from PyQt5.uic import loadUi # загрузка интерфейса, созданного в Qt Creator
 
 import sqlite3
 
 from pages.Manager import Manager
-from pages.UserTableDialog import UserTableDialog
 
 from pages.database import showSelect
 
 
-# Окно приветствия
 class WelcomeScreen(QDialog):
     """
     Это класс окна приветствия.
@@ -27,58 +25,40 @@ class WelcomeScreen(QDialog):
         Это конструктор класса
         """
         super(WelcomeScreen, self).__init__()
-        loadUi("views/welcomescreen.ui",self) # загружаем интерфейс.
-        self.PasswordField.setEchoMode(QtWidgets.QLineEdit.Password) # скрываем пароль
-           
-        
-        
-class AuthPage(WelcomeScreen):        
-    def __init__(self):
-        super().__init__()    
-        self.SignInButton.clicked.connect(self.signupfunction) # нажати на кнопку и вызов функции
-        # Подключение кнопок к методам переключения страниц с использованием lambda
-        #self.SignInButton.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.Zakazchik))
+        loadUi("views/welcomescreen.ui", self)  # загружаем интерфейс.
         self.AvtorButton.clicked.connect(self.sign_out)
         self.AvtorButton.hide()
         self.stackedWidget.currentChanged.connect(self.hiddenButton)  
-    # Создаем пустой список для хранения QLineEdit
-    def hide_label(self, count):
-        line_edits = []
-        # Проходим по всем элементам в QVBoxLayout
-        for i in range(self.verticalLayout_3.count()):
-            item = self.verticalLayout_3.itemAt(i)
-            widget = item.widget()
-            
-            
-            # Проверяем, является ли виджет QLineEdit
-            if isinstance(widget, QLineEdit):
-                line_edits.append(widget)
-                widget.hide()
-        # Теперь line_edits содержит список всех QLineEdit в QVBoxLayout
-        for i in line_edits[count:]:
-            i.show()
 
-    def signupfunction(self): # создаем функцию регистрации
-        
-        user = self.LoginField.text() # создаем пользователя и получаем из поля ввода логина введенный текст
-        password = self.PasswordField.text() # создаем пароль и получаем из поля ввода пароля введенный текст
-        return user, password # выводит логин и пароль
 
-        
-    
     def hiddenButton(self):
         if self.stackedWidget.currentWidget() == self.Avtorisation:  
             self.AvtorButton.hide()
         else:
             self.AvtorButton.show()
 
-
     def sign_out(self):
         self.stackedWidget.setCurrentWidget(self.Avtorisation)
+        
+
+class AuthPage(WelcomeScreen):        
+    def __init__(self):
+        super().__init__() 
+        # Пример инициализации объектов, которые будут использоваться в AuthPage
+
+        self.PasswordField.setEchoMode(QLineEdit.Password)  # скрываем пароль
+
+    def signupfunction(self): # создаем функцию регистрации        
+        user = self.LoginField.text() # создаем пользователя и получаем из поля ввода логина введенный текст
+        password = self.PasswordField.text() # создаем пароль и получаем из поля ввода пароля введенный текст
+        return user, password # выводит логин и пароль       
+    
+   
 
 class UserScreen(WelcomeScreen, showSelect):
     def __init__(self):
         super().__init__()
+        # self.inser_button.clicked.connect(self.execute_query())
         self.pages = {
     1: {
         'zp': "",
@@ -92,8 +72,6 @@ class UserScreen(WelcomeScreen, showSelect):
                     requests r
                 JOIN 
                     comments c ON r.IDrequest = c.requestID;""",
-        'table': 'tableWidget',
-        'columns': 0
     },
     3: {
         'zp': """SELECT
@@ -120,7 +98,6 @@ class UserScreen(WelcomeScreen, showSelect):
                     users c ON r.clientID = c.IDuser
                 LEFT JOIN 
                     comments com ON r.IDrequest = com.requestID;""",
-        'columns': 0
     },
     4: {
         'zp': """SELECT
@@ -140,10 +117,26 @@ class UserScreen(WelcomeScreen, showSelect):
                     comments co ON r.IDrequest = co.requestID
                 WHERE 
                     r.clientID = ?;""",
-        'columns': 5
     }
 }
-    def check_user(self, user, password):
+        # Создаем пустой список для хранения QLineEdit
+    def hide_label(self, count):
+        line_edits = []
+        # Проходим по всем элементам в QVBoxLayout
+        for i in range(self.verticalLayout_3.count()):
+            item = self.verticalLayout_3.itemAt(i)
+            widget = item.widget()
+            widget.hide()
+            
+            # Проверяем, является ли виджет QLineEdit
+            if isinstance(widget, QLineEdit):
+                line_edits.append(widget)
+        # Теперь line_edits содержит список всех QLineEdit в QVBoxLayout
+        for i in line_edits[count:]:
+            i.show()
+    def check_user(self):
+        user, password = self.signupfunction()
+        print(user, password)
         if len(user)==0 or len(password)==0: # если пользователь оставил пустые поля
             self.ErrorField.setText("Заполните все поля") # выводим ошибку в поле
         else:
@@ -156,23 +149,26 @@ class UserScreen(WelcomeScreen, showSelect):
             print(typeUser)
             if typeUser == None:
                 self.ErrorField.setText("Пользователь с такими данными не найден")
-            elif typeUser[0] == 1:
-                self.lybaya = Manager()
             else:
-                if typeUser[0] == 4:
-                    cur.execute('SELECT IDuser FROM users WHERE login=(?) and password=(?)', [user, password])
-                    userID = cur.fetchone()  # Получаем кортеж с ID пользователя
-
-                    self.lybaya = showSelect.showdata(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID, type_user=typeUser) 
-
+                if typeUser[0] == 1:
+                    lybaya = Manager()
                 else:
-                    self.lybaya = showSelect.showdata(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], type_user=typeUser)    
-            
-            
-            self.hide_label(self.lybaya)
+                    if typeUser[0] == 4:
+                        cur.execute('SELECT IDuser FROM users WHERE login=(?) and password=(?)', [user, password])
+                        userID = cur.fetchone()  # Получаем кортеж с ID пользователя
 
-            self.table = self.findChild(QTableWidget, 'tableWidget')
-            self.stackedWidget.setCurrentWidget(self.user)
+                        lybaya = self.showdata(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'], userID=userID,) 
 
-            conn.commit() # сохраняет в подключении запросы
-            conn.close() # закрываем подключение
+                    else:
+                        lybaya = self.showdata(self.tableMasteraZayavki, zapros=self.pages[typeUser[0]]['zp'])    
+                
+                
+                    self.hide_label(11-lybaya)
+
+                self.table = self.findChild(QTableWidget, 'tableWidget')
+                self.stackedWidget.setCurrentWidget(self.user)
+
+                conn.commit() # сохраняет в подключении запросы
+                conn.close() # закрываем подключение
+
+
