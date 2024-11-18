@@ -39,18 +39,27 @@ class showData(Database):
             raise
         finally:
             conn.close()
-    def insert(self, query, params=None):
-        conn = self.connect()
 
-        conn = sqlite3.connect(self.db)
-        cur = conn.cursor()
-        if params:
-            cur.execute(query, params)
-        else:
-            cur.execute(query)
-        conn.commit()
-        conn.close()
-        print('insert')
+    def insert_data(self, query, params=None):
+        conn = self.connect()
+        if conn is None:
+            raise ConnectionError("Не удалось установить подключение к базе данных.")
+
+        try:
+            conn = sqlite3.connect(self.db)
+            cur = conn.cursor()
+            if params:
+                cur.execute(query, params)
+            else:
+                cur.execute(query)
+            conn.commit()
+        except sqlite3.Error as e:
+            print(f"Ошибка выполнения запроса: {e}")
+            raise
+        finally:
+            conn.commit()
+            conn.close()
+        
 
 class showSelect(showData):
     def __init__(self):

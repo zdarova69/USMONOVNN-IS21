@@ -120,7 +120,7 @@ class UserScreen(WelcomeScreen, showSelect):
                 VALUES (?, ?, ?, ?, ?, ?, ?);"""
     }
 }   
-        self.insert_button.clicked.connect(self.insert_data)  # нажатие на кнопку и вызов функци
+        self.insert_button.clicked.connect(self.insert)  # нажатие на кнопку и вызов функци
         # Создаем пустой список для хранения QLineEdit
     def hide_label(self, count):
         line_edits = []
@@ -174,13 +174,14 @@ class UserScreen(WelcomeScreen, showSelect):
                 conn.commit() # сохраняет в подключении запросы
                 conn.close() # закрываем подключение
 
-    def insert_data(self):
-        # Создаем список значений из текста каждой строки
-        values = [i.text() for i in self.lines]
+    def insert(self):
+        if self.typeUser == 4:
+            # Создаем список значений из текста каждой строки
+            values = [i.text() for i in self.lines]
 
-        # Добавляем текущую дату и self.typeUser в список
-        current_date = date.today().strftime("%Y-%m-%d")
-        values.append(current_date)
-        values.append(self.userID)
-        self.insert(query=self.pages[self.typeUser]['insert'], params=values)
-        self.showdata(self.tableMasteraZayavki, query=self.pages[self.typeUser]['zp'], params=self.userID,) 
+            # Добавляем текущую дату и self.typeUser в список
+            current_date = date.today().strftime("%Y-%m-%d")
+            values.append(current_date)
+            values.append(self.userID)
+            self.insert_data(query=self.pages[self.typeUser]['insert'], params=values)
+            self.showdata(self.tableMasteraZayavki, query=self.pages[self.typeUser]['zp'], params=self.userID,) 
